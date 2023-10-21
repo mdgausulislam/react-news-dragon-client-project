@@ -19,8 +19,13 @@ const RightNav = () => {
                 </ListGroup>
             </div>
             <QZone></QZone>
-            <div>
-                <img src={bg} alt="" />
+            <div className='position-relative'>
+                <img className='w-100' src={bg} alt="" />
+                <div className='position-absolute top-0 p-5'>
+                    <h1 className='text-white'>Create an Amazing Newspaper</h1>
+                    <p className='text-white fs-4'>Discover thousands of options, easy to customize layouts, one-click to import demo and much more.</p>
+                    <Button className='px-5 py-4 fw-bold fs-3' variant="danger">Danger</Button>
+                </div>
             </div>
         </div>
     );
