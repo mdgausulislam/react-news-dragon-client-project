@@ -7,11 +7,11 @@ import bg from "../../../assets/bg.png"
 const RightNav = () => {
     return (
         <div className='block'>
-            <h3>Login With</h3>
+            <h3 className='mt-4'>Login With</h3>
             <Button className='mb-3' variant="outline-primary"> <FaGoogle /> Login with Google</Button>
             <Button variant="outline-secondary"><FaGithub /> Login With Github</Button>
             <div>
-                <h3>Find us on</h3>
+                <h3 className='mt-4'>Find us on</h3>
                 <ListGroup>
                     <ListGroup.Item><FaFacebook/> Facebook</ListGroup.Item>
                     <ListGroup.Item><FaTwitter/> Twitter</ListGroup.Item>
