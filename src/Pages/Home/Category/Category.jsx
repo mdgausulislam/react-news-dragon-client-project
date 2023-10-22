@@ -1,15 +1,19 @@
 import React from 'react';
-import Header from '../../Share/Header/Header';
-import { Col, Container, Row } from 'react-bootstrap';
-import Footer from '../../Share/Footer/Footer';
-import { Outlet, useParams } from 'react-router-dom';
-import RightNav from '../../Share/RightNav/RightNav';
+import {useLoaderData, useParams } from 'react-router-dom';
+import NewsCard from '../NewsCArd/NewsCard';
 
 const Category = () => {
     const {id}=useParams();
+    const categoryNews=useLoaderData()
     return (
         <div>
-            <h2>this is category:{id}</h2>
+            <h2>This category News: {categoryNews.length} </h2>
+           {
+             categoryNews.map(news=><NewsCard
+             key={news._id}
+             news={news}
+             ></NewsCard>)
+           }
         </div>
     );
 };
