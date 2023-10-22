@@ -6,6 +6,7 @@ import NewsLayout from "../layouts/NewsLayout";
 import News from "../Pages/News/News/News";
 import LoginLayout from "../layouts/LoginLayout";
 import Register from "../Pages/Login/Register/Register";
+import Login from "../Pages/Login/Login/Login";
 
 const router = createBrowserRouter([
 
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
             },
 
             {
-                path:'/login',
+                path:'/register',
                 element:<Register></Register>
             }
         ]

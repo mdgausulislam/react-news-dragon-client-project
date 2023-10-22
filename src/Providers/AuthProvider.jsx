@@ -9,7 +9,7 @@ export const AuthContext=createContext(null)
 
 const AuthProvider = ({children}) => {
 
-    const user ={displayName:'Hemonto'};
+    const user =null;
     const AuthInfo={
         user,
     }  
