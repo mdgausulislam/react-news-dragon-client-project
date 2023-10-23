@@ -5,7 +5,7 @@ import Sports from '../Sports/Sports';
 const LeftNav = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/category')
+        fetch('https://react-news-drsgon-server-project-hyfkowejm.vercel.app/category')
             .then(res => res.json())
             .then(data => setCategories(data))
             .catch(error => console.error(error))
