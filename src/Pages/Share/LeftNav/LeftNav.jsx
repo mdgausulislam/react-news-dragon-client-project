@@ -12,7 +12,7 @@ const LeftNav = () => {
     }, [])
     return (
         <div>
-            <h3> All Categories</h3>
+            <h3 className='bg-secondary bg-gradient p-2 text-white rounded'> National News</h3>
             <div className='ps-4'>
                 {
                     categories.map(category => <p
