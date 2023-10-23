@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 
 const Register = () => {
-    const [error,setError]=useState();
+    const [error, setError] = useState();
     const { createUser } = useContext(AuthContext);
+    const [accept, setAccept] = useState(false);
 
     const handleWithRegister = (event) => {
         event.preventDefault();
@@ -16,16 +17,18 @@ const Register = () => {
         const password = registerForm.password.value;
         console.log(name, photo, email, password);
 
-        createUser(email,password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-        })
-        .catch(error => {
-            setError(error.message)
-        })
+        createUser(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                setError(error.message)
+            })
     }
-
+    const handleAccepted =event=>{
+        setAccept(event.target.checked);
+    }
 
     return (
         <Container className='w-25 mx-auto'>
@@ -49,11 +52,15 @@ const Register = () => {
                     <Form.Control type="password" name='password' placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" name='accept' label="Accept terms and condition" />
+                    <Form.Check
+                        onClick={handleAccepted}
+                        type="checkbox"
+                        name='accept'
+                        label={<>Accept <Link to='/terms'>Terms and condition</Link></>} />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" disabled={!accept} type="submit">
                     Register
-                </Button><br/>
+                </Button><br />
                 <Form.Text className='text-success'>
                     Already  Have an account ? <Link to='/login'>Login</Link>
                 </Form.Text>

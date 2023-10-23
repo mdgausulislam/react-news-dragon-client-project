@@ -8,6 +8,7 @@ import LoginLayout from "../layouts/LoginLayout";
 import Register from "../Pages/Login/Register/Register";
 import Login from "../Pages/Login/Login/Login";
 import PrivateRoute from "./PrivateRoute";
+import TermsCondition from "../Pages/Share/TermsCondition.jsx/TermsCondition";
 
 const router = createBrowserRouter([
 
@@ -15,25 +16,24 @@ const router = createBrowserRouter([
         path: '/',
         element: <LoginLayout></LoginLayout>,
         children: [
-            // {
-            //     path: '/',
-            //     element: <Category></Category>,
-            //     loader: () => fetch('http://localhost:5000/news')
-            // }
-
+           
             {
-                path:'/',
-                element:<Navigate to='category/0'></Navigate>
+                path: '/',
+                element: <Navigate to='category/0'></Navigate>
 
             },
             {
-                path:'/login',
-                element:<Login></Login>
+                path: '/login',
+                element: <Login></Login>
             },
 
             {
-                path:'/register',
-                element:<Register></Register>
+                path: '/register',
+                element: <Register></Register>
+            },
+            {
+                path: 'terms',
+                element: <TermsCondition></TermsCondition>
             }
         ]
     },
