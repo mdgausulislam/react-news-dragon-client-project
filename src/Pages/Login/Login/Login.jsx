@@ -2,14 +2,15 @@ import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const Login = () => {
     const { SignInUser } = useContext(AuthContext);
-    const navigate=useNavigate();
-    const location=useLocation();
-    console.log('location set the login',location);
+    const navigate = useNavigate();
+    const location = useLocation();
+    useTitle('Login')
 
-    const from=location.state?.from?.pathname || '/category/0';
+    const from = location.state?.from?.pathname || '/category/0';
 
 
     const handleWithSignIn = (event) => {
@@ -23,7 +24,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                navigate(from,{replace:true})
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message)
@@ -44,7 +45,7 @@ const Login = () => {
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Login
-                </Button><br/>
+                </Button><br />
                 <Form.Text className='text-secondary'>
                     Don't Have an account ? <Link to='/register'>Register</Link>
                 </Form.Text>
